@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg fill-opacity="1" xmlns:xlink="http://www.w3.org/1999/xlink" color-rendering="auto" color-interpolation="auto" text-rendering="auto" stroke="black" stroke-linecap="square" stroke-miterlimit="10" shape-rendering="auto" stroke-opacity="1" fill="black" stroke-dasharray="none" font-weight="normal" stroke-width="1" xmlns="http://www.w3.org/2000/svg" font-family="&apos;Dialog&apos;" font-style="normal" stroke-linejoin="miter" font-size="12" stroke-dashoffset="0" image-rendering="auto">
+  <!--Unicode Character 'DASHED TRIANGLE-HEADED RIGHTWARDS ARROW' (U+279F)-->
+  <defs id="genericDefs" />
+  <g>
+    <g>
+      <path d="M89.5781 256.7812 L164.3906 260.8594 L156.0938 231.4688 L230.0625 286.1719 L156.0938 341.2969 L164.3906 311.9062 L89.5781 315.8438 L97.875 286.1719 L89.5781 256.7812 ZM10.125 252.5625 L17.5781 252.8438 L25.875 286.1719 L17.5781 319.9219 L10.125 320.2031 L18.4219 286.1719 L10.125 252.5625 ZM36 253.9688 L49.5 254.5312 L57.9375 286.1719 L49.5 318.2344 L36 318.7969 L44.2969 286.1719 L36 253.9688 ZM59.9062 255.0938 L82.4062 256.5 L90.7031 286.1719 L82.4062 316.125 L59.9062 317.6719 L68.2031 286.1719 L59.9062 255.0938 Z" stroke="none" />
+    </g>
+  </g>
+</svg>

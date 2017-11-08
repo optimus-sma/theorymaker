@@ -1,0 +1,252 @@
+<div id="help-container">
+    <style>
+      #help-container {
+        overflow-y: auto;
+        height: 100%;
+      }
+  
+      #help-container h1,
+      #help-container h2,
+      #help-container h3,
+      #help-container h4 {
+        margin: 10px 5px;
+      }
+  
+      #help-container h1 {
+        font-size: 20px;
+      }
+  
+      #help-container h2 {
+        font-size: 19px;
+      }
+  
+      #help-container h3 {
+        font-size: 17px;
+      }
+  
+      #help-container h4 {
+        font-size: 16px;
+      }
+  
+      #help-container p {
+        font-size: 14px;
+      }
+  
+      #help-container blockquote {
+        margin: 0px;
+        padding: 0px 10px;
+      }
+  
+      #help-container .panel-content {
+        /*height: 100%;*/
+        height: 400px;
+        overflow-y: scroll;
+        /* padding: 5px 10px 10px 10px; */
+      }
+  
+      #help-container .panel-label {
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        border: 0;
+        margin: 0 0 0 0;
+        width: 100%;
+        opacity: 0.7;
+        background: #0071a4;
+        padding: 5px 10px;
+      }
+    </style>
+    <script>
+      $("#getting-started-with-theory-maker-drag-drop-label").click(function () {
+        var active = $(this).hasClass('active');
+        $("#getting-started-with-theory-maker-drag-drop-label span").toggleClass('glyphicon-menu-down').toggleClass(
+          'glyphicon-menu-right');
+        $(this).toggleClass('active');
+        $("#getting-started-with-theory-maker-drag-drop-content").toggleClass('collapsed');
+  
+        $("#extra-tips-label span").removeClass('glyphicon-menu-down').addClass('glyphicon-menu-right');
+        $("extra-tips-label").removeClass('active');
+        $("#extra-tips-content").addClass('collapsed');
+      });
+      $("#extra-tips-label").click(function () {
+        var active = $(this).hasClass('active');
+        $("#extra-tips-label span").toggleClass('glyphicon-menu-down').toggleClass('glyphicon-menu-right');
+        $(this).toggleClass('active');
+        $("#extra-tips-content").toggleClass('collapsed');
+  
+        $("#getting-started-with-theory-maker-drag-drop-label span").removeClass('glyphicon-menu-down').addClass(
+          'glyphicon-menu-right');
+        $("#getting-started-with-theory-maker-drag-drop-label").removeClass('active');
+        $("#getting-started-with-theory-maker-drag-drop-content").addClass('collapsed');
+      });
+    </script>
+  
+  
+    <p>Press the blue X to close this help panel</p>
+    <div id="getting-started-with-theory-maker-drag-drop-label" class="active panel-label">Getting started
+      <span class="glyphicon glyphicon-menu-down"></span>
+    </div>
+    <div id="getting-started-with-theory-maker-drag-drop-content" class="panel-content">
+  
+  
+      <!-- Insert first panel here starting from h1 -->
+  
+      <h1 id="getting-started-with-theory-maker-drag-drop">
+        <a name="user-content-getting-started-with-theory-maker-drag-drop" href="#getting-started-with-theory-maker-drag-drop" class="headeranchor-link"
+          aria-hidden="true">
+          <span class="headeranchor"></span>
+        </a>Getting started with Theory Maker Drag &amp; Drop</h1>
+      <blockquote>
+        <p>Be careful, still in beta! Only works in Chrome, Firefox or Opera. Also try
+          <a href="http://theorymaker.info">theorymaker.info</a>, the text-based alternative.</p>
+      </blockquote>
+      <ul>
+        <li>
+          <strong>Zoom in</strong>: Scroll with mouse wheel (or two finger drag on your trackpad)</li>
+        <li>
+          <strong>Move diagram around</strong>: Click on the background and drag</li>
+        <li>
+          <strong>Add a new Variable</strong>: Double-click on the diagram OR drag away from one Variable, using the &#10150; icon.
+        </li>
+        <li>
+          <strong>Change or delete something</strong>: Click the &#x270E; icon (near the end of an Arrow, at the top-left of Variables
+          and Groups) OR right-click on it. To finish, just click the diagram background.</li>
+        <li>
+          <strong>Add an arrow</strong>: Hover your mouse over a Variable or Group and click on the &#10150; icon at the top-right,
+          then drag to another or to an empty space (press Ctrl+Shift at the same time to get a reverse Arrow). </li>
+        <li>
+          <strong>Add a Group box</strong>: Click on the Variables you want, right-click, &ldquo;Add group&rdquo;.</li>
+        <li>
+          <strong>Move a Variable or a Group</strong>: Drag it and drop it. </li>
+        <li>
+          <strong>Move a Variable into and out of Groups</strong>: Near the top-right corner of the Variable, grab the &#x279F; icon.
+          </li>
+      </ul>
+      <h3 id="using-the-right-hand-panel-if-you-cant-see-it-click-on-the-gear-wheel-icon">
+        <a name="user-content-using-the-right-hand-panel-if-you-cant-see-it-click-on-the-gear-wheel-icon" href="#using-the-right-hand-panel-if-you-cant-see-it-click-on-the-gear-wheel-icon"
+          class="headeranchor-link" aria-hidden="true">
+          <span class="headeranchor"></span>
+        </a>Using the right-hand panel (if you can&rsquo;t see it, click on the gear-wheel icon)</h3>
+      <ul>
+        <li>
+          <strong>Fold and unfold sections of the panel</strong>: click on the
+          <span class="glyphicon glyphicon-menu-right">
+        </li>
+        <li>
+          <strong>Save your diagram online</strong>: In the
+          <code>Save</code> section, type a name and press &ldquo;Save diagram online&rdquo;. You can revisit it again at the link
+          which appears. An online
+          <code>png</code> image is also created.</li>
+        <li>
+          <strong>Download your diagram as a picture</strong>: Zoom in or out as required, Select the type you want (
+          <code>emf</code> is good for Microsoft Office docs), Click download.</li>
+        <li>
+          <strong>Copy your diagram to the clipboard</strong>: click &ldquo;Create Web Graphic&rdquo;, then Ctrl+C (or right-click
+          / copy), then click to return to app.</li>
+        <li>
+          <strong>Change the appearance of
+            <em>all</em> your Variables, Groups and/or Arrows</strong>: change the settings in the right-hand panel.</li>
+      </ul>
+  
+  
+      <!-- end of first panel content with final ul -->
+  
+  
+    </div>
+  
+  
+    <div id="extra-tips-label" class="panel-label">Extra tips
+      <span class="glyphicon glyphicon-menu-right"></span>
+    </div>
+    <div id="extra-tips-content" class="panel-content collapsed">
+  
+      <!-- insert second panel content here starting with hi -->
+  
+  
+      <h1 id="extra-tips">
+        <a name="user-content-extra-tips" href="#extra-tips" class="headeranchor-link" aria-hidden="true">
+          <span class="headeranchor"></span>
+        </a>Extra tips</h1>
+      <ul>
+        <li>
+          <strong>If something is not working</strong> - save the diagram online to &ldquo;refresh&rdquo; it.</li>
+        <li>
+          <strong>Select more than one item</strong> - click on each one. </li>
+        <li>
+          <strong>De-select all items</strong> - click on the background.</li>
+        <li>
+          <strong>Change appearance of more than one item</strong> - select several items then right-click or press &#x2699;.
+        </li>
+        <li>
+          <strong>To arrange Variables in a column with even spacing</strong> - click the &#x2699; and check &ldquo;Fixed vertical
+          spacing&rdquo;. The Variables are now marked with a &#8616;.</li>
+        <li>
+          <strong>Stop the arrows &ldquo;flowing&rdquo;</strong> - in the right-hand panel, section &ldquo;Arrow&rdquo;, unclick &ldquo;Flow
+          arrow&rdquo;.</li>
+        <li>
+          <strong>Get a better quality graphic download</strong> - in the right-hand panel, section &ldquo;Save&rdquo;, change the
+          slider (only necessary for png graphics).</li>
+        <li>
+          <strong>Save your diagram on your desktop</strong> - in the right-hand panel, section &ldquo;Save&rdquo;, click &ldquo;Save
+          to desktop&rdquo;. Later, re-load the same file using
+          <code>Load from desktop</code>. </li>
+        <li>
+          <strong>Apply themes</strong> - in the right-hand panel, section &ldquo;Diagram&rdquo;, select a theme. De-select &ldquo;change
+          existing items&rdquo; if you only want your theme to apply to new items.</li>
+        <li>
+          <strong>Add icons</strong> When editing text, click on an icon in the palette below. Or copy and paste from
+          <a href="https://emojipedia.org/search/?q=heart">Emojipedia</a>. You can also use
+          <a href="http://www.amp-what.com/unicode/search/">character codes</a> like
+          <code>&amp;phone;</code>, which produces &phone;</li>
+        <li>
+          <strong>To create several Variables at once</strong> - when editing one Variable label, type or paste your text with
+          <em>double line-breaks</em> where you want new Variables. When you finish, corresponding Variables are created underneath.
+        </li>
+        <li>
+          <strong>Add notes to something</strong> - right-click on it and type something in the &ldquo;Notes&rdquo; box. The notes
+          also appear as a tool-tip (when you hover over the item).</li>
+        <li>
+          <strong>Curve an Arrow</strong> - right-click on it or click the &#x2699; and type a number in the
+          <code>Curved %</code> box. Negative numbers e.g.
+          <code>-22</code> curve the other way.</li>
+        <li>
+          <strong>Fix the start or end of an Arrow to a particular corner</strong> - right-click on it or click the &#x2699; then change
+          the
+          <code>Source</code> or
+          <code>Target</code>. </li>
+      </ul>
+      <h2 id="keyboard-shortcuts">
+        <a name="user-content-keyboard-shortcuts" href="#keyboard-shortcuts" class="headeranchor-link" aria-hidden="true">
+          <span class="headeranchor"></span>
+        </a>Keyboard shortcuts:</h2>
+      <ul>
+        <li>
+          <strong>Delete</strong> on one or more selected item(s): delete the item(s).</li>
+        <li>
+          <strong>Ctrl+z</strong> undo previous change(s). Press several times if necessary.</li>
+        <li>
+          <strong>Enter</strong> on a selected item: edit the label. To finish, press Ctrl+Enter.</li>
+        <li>
+          <strong>Arrow keys</strong>: navigate around connected Variables (left: move to parent; right: move to child; up/down: move
+          to siblings). </li>
+        <li>
+          <strong>Ctrl+Left-arrow</strong>: create a new Variable to the left of the selected Variable.</li>
+        <li>
+          <strong>Ctrl+Right-arrow</strong>: create a new Variable to the right of the selected Variable.</li>
+        <li>
+          <strong>Ctrl+Down-arrow</strong> (used on a Variable which is parent of another Variable): create another parent.</li>
+        <li>
+          <strong>Ctrl+Up-arrow</strong> (used on a Variable which is child of another Variable): create another child.</li>
+      </ul>
+  
+  
+      <!-- end of second panel content with last ul -->
+  
+  
+  
+    </div>
+  
+  
+  
+  
+  </div>

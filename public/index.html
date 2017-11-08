@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-script-type" content="text/javascript">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="http://theorymaker.info/favicon.ico" />
+
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/tooltipster.bundle.min.css">
+	<link rel="stylesheet" href="/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css">
+	<link rel="stylesheet" href="/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-light.min.css">
+	<link rel="stylesheet" href="/css/jquery.contextMenu.min.css">
+	<link rel="stylesheet" href="/css/d3.slider.css">
+	<link rel="stylesheet" href="/css/d3.graph.css">
+	<link rel="stylesheet" href="/css/export.css">
+	<title>Theorymaker Interactive</title>
+</head>
+
+<body>
+
+	<div style="margin-top:50px;" id="main-container">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-7602">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<span class="navbar-brand">
+						<a href=".">Theory Maker</a>
+					</span>
+				</div>
+				<div class="navbar-collapse collapse" id="navbar-collapse-7602">
+					<ul class="nav navbar-nav shiny-tab-input" id="main">
+						<li>
+							<a id="theorymaker-info" data-toggle="tab">
+								<i class="fa fa-list fa-fw"></i> Text App
+							</a>
+						</li>
+						<li class="active dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-mouse-pointer fa-fw"></i> Drag &amp; Drop App
+							</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div id="display-help">
+			<div id="bt-help">
+				<i id="help-ico" class="fa fa-question" style="font-size: 24px;margin-top: 10px; margin-left: 14px;color: #0071a4;" aria-hidden="true"></i>
+				<svg>
+					<g id="help-close-ico" class="d3-hidden">
+						<rect class="pulsate" x="17" y="9.5" transform="matrix(0.7071 0.7071 -0.7071 0.7071 18.0002 -7.4559)" width="2" height="17"></rect>
+						<rect class="pulsate" x="9.5" y="17" transform="matrix(0.7071 0.7071 -0.7071 0.7071 18.0002 -7.4559)" width="17" height="2"></rect>
+					</g>
+				</svg>
+			</div>
+			<div id="display-help-cont"></div>
+		</div>
+
+
+		<div id="display-list">
+			<div id="bt-list">
+				<i id="list-ico" class="fa fa-picture-o" style="font-size: 24px;margin-top: 9.5px; margin-left: 8px;color: #0071a4;" aria-hidden="true"></i>
+				<svg>
+					<g id="list-close-ico" class="d3-hidden">
+						<rect class="pulsate" x="17" y="9.5" transform="matrix(0.7071 0.7071 -0.7071 0.7071 18.0002 -7.4559)" width="2" height="17"></rect>
+						<rect class="pulsate" x="9.5" y="17" transform="matrix(0.7071 0.7071 -0.7071 0.7071 18.0002 -7.4559)" width="17" height="2"></rect>
+					</g>
+				</svg>
+			</div>
+			<div id="display-list-cont">
+				<h1 class="get-data-title">Examples</h1>
+				<p class="get-data">default</p>
+				<p class="get-data">IFRC</p>
+				<p class="get-data">IFRC2</p>
+				<p class="get-data">flow</p>
+			</div>
+		</div>
+
+		<div id="display-settings" class="position-right-0">
+			<div id="bt-undo">
+				Undo
+			</div>
+			<div id="bt-settings">
+				<svg>
+					<g stroke="none" class="d3-hidden" id="settings-ico">
+						<path d="M25,15.9l-0.5-1.2l1.1-2.6L24,10.5c-0.1-0.1-2.6,1.1-2.6,1.1l-1.2-0.5c0,0-1.1-2.6-1.2-2.6h-2.2
+            c-0.1,0-1.1,2.6-1.1,2.6l-1.2,0.5L12,10.5l-1.4,1.5c-0.1,0.1,1.1,2.6,1.1,2.6l-0.5,1.2c0,0-2.6,1.1-2.6,1.2v2.1
+            c0,0.1,2.6,1.1,2.6,1.1l0.5,1.2l-1.1,2.6l1.4,1.4c0.1,0.1,2.6-1.1,2.6-1.1l1.2,0.5c0,0,1.1,2.6,1.2,2.6h2.2
+            c0.1,0,1.1-2.6,1.1-2.6l1.2-0.5l2.6,1.1l1.4-1.4c0.1-0.1-1.1-2.6-1.1-2.6l0.5-1.2c0,0,2.6-1.1,2.6-1.2v-2.1
+            C27.6,16.8,25,15.9,25,15.9z M21.2,18c0,1.7-1.4,3.1-3.1,3.1S15,19.7,15,18c0-1.7,1.4-3.1,3.1-3.1S21.2,16.3,21.2,18z"></path>
+					</g>
+					<g id="settings-close-ico">
+						<rect class="pulsate" x="17" y="9.5" transform="matrix(0.7071 0.7071 -0.7071 0.7071 18.0002 -7.4559)" width="2" height="17"></rect>
+						<rect class="pulsate" x="9.5" y="17" transform="matrix(0.7071 0.7071 -0.7071 0.7071 18.0002 -7.4559)" width="17" height="2"></rect>
+					</g>
+				</svg>
+			</div>
+			<div id="display-settings-cont">
+
+				<div id="diagram-panel-label" class="panel-label">Diagram
+					<span class="glyphicon glyphicon-menu-right"></span>
+				</div>
+				<div id="diagram-panel-content" class="panel-content">
+					<div style="padding: 5px 10px 10px 10px;">
+						<p class="main-color">Theme:</p>
+						<select id="parameter-themes" style="width:100%;padding:1px;">
+							<option>default</option>
+						</select>
+						<p style="padding-top: 5px;">
+							<input id="parameter-change-existing-items" style="width:10%;border:0;background:#fff;color:#080808;padding:0.5px;" type="checkbox"
+							  checked>change existing items</p>
+						<p style="padding-top: 5px;">
+							<input id="parameter-is-graph-permalink" style="width:10%;border:0;background:#fff;color:#080808;padding:0.5px;" type="checkbox">display link on diagram</p>
+						<p class="main-color">Background colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-background-colour" style="border: 1px solid #a9a9a9;background:#F7FBFF;color:transparent;"
+							  value="#F7FBFF" />
+						</p>
+						<p class="main-color">
+							<span>Title:</span>
+							<input id="parameter-title-name" type="edit" style="width:100%;border: 1px solid #a9a9a9;background:#fff;color:#080808;padding:0.5px;">
+						</p>
+						<p class="main-color">
+							<span>Title text size:
+								<span id="parameter-title-text-size-value">24</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-title-text-size"></div>
+						</p>
+						<p class="main-color">Title colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-title-text-colour" style="border: 1px solid #a9a9a9;background:#000000;color:transparent;"
+							  value="#000000" />
+						</p>
+						<p class="main-color">
+							<span>Notes:</span>
+							<textarea id="parameter-graph-info" style="width:100%;border: 1px solid #a9a9a9;background:#fff;color:#080808;padding:0.5px;"></textarea>
+						</p>
+					</div>
+
+				</div>
+
+
+				<div id="save-panel-label" class="active panel-label">Save
+					<span class="glyphicon glyphicon-menu-down"></span>
+				</div>
+				<div id="save-panel-content" class="panel-content">
+					<div style="padding: 5px 10px 10px 10px;">
+						<p class="main-color">
+							<span>Quality:
+								<span id="parameter-quality-value">2</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-quality"></div>
+						</p>
+						<p class="main-color">
+							<select id="parameter-for-save" style="width:50%;float:left;padding:1px;">
+								<option>png</option>
+								<option>pdf</option>
+								<option>emf</option>
+							</select>
+							<input id="parameter-save" style="width:50%;border: 1px solid #a9a9a9;background:#fff;color:#080808;padding:0px;" type="button"
+							  value="download" download>
+						</p>
+						<p>
+							<input id="parameter-permalink-name" pattern="[A-Za-z0-9_]" maxlength="100" style="width:100%;margin-top: 5px;" type="text"
+							  placeholder="permalink name">
+						</p>
+						<p>
+							<input id="parameter-save-dataset" class="main-color" style="width:100%;border: 1px solid #a9a9a9;background:#fff;" type="button"
+							  value="Save diagram online">
+						</p>
+						<p class="saved-link">Link:
+							<a id="saved-link-a" target="_blank"></a>
+						</p>
+						<p class="saved-link">Image:
+							<a id="saved-i-link-a" target="_blank"></a>
+						</p>
+						<p style="width:100%;background:#fff;text-align: center;margin-top:5px;border: 1px solid #a9a9a9;">
+							<input id="parameter-download-dataset" class="main-color" type="button" value="Save to desktop">
+						</p>
+						<p style="margin-top:5px;">
+							<label for="parameter-upload-dataset" class="custom-file-upload" style="border: 1px solid #a9a9a9;">Load from desktop</label>
+							<input id="parameter-upload-dataset" type="file" name="upload" multiple="multiple">
+						</p>
+					</div>
+				</div>
+
+				<div id="variable-panel-label" class="panel-label">Variable
+					<span class="glyphicon glyphicon-menu-right"></span>
+				</div>
+				<div id="variable-panel-content" class="panel-content">
+					<div style="padding: 5px 10px 10px 10px;">
+						<p class="main-color">
+							<span>Width:
+								<span id="parameter-node-width-value">200</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-node-width"></div>
+						</p>
+						<p class="main-color">
+							<span>Border width:
+								<span id="parameter-node-border-width-value">1.5</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-node-border-width"></div>
+						</p>
+						<p class="main-color">Colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-node-colour" style="border: 1px solid #a9a9a9;background:#C7E9C0;color:transparent;" value="#C7E9C0"
+							/>
+						</p>
+						<p class="main-color">Border colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-node-border-colour" style="border: 1px solid #a9a9a9;background:#525252;color:transparent;"
+							  value="#525252" />
+						</p>
+						<p class="main-color">Text colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-node-text-colour" style="border: 1px solid #a9a9a9;background:#000000;color:transparent;"
+							  value="#000000" />
+						</p>
+						<p class="main-color">
+							<span>Text size:
+								<span id="parameter-node-text-size-value">14</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-node-text-size"></div>
+						</p>
+						<p class="main-color">
+							<span>Transparency:
+								<span id="parameter-node-opacity-value">0</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-node-opacity"></div>
+						</p>
+					</div>
+				</div>
+
+
+				<div id="group-panel-label" class="panel-label">Group
+					<span class="glyphicon glyphicon-menu-right"></span>
+				</div>
+				<div id="group-panel-content" class="panel-content">
+					<div style="padding: 5px 10px 10px 10px;">
+						<p class="main-color">
+							<span>Border width:
+								<span id="parameter-group-border-width-value">2</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-group-border-width"></div>
+						</p>
+						<p class="main-color">Colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-group-colour" style="border: 1px solid #a9a9a9;background:#9E9AC8;color:transparent;" value="#9E9AC8"
+							/>
+						</p>
+						<p class="main-color">Border colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-group-border-colour" style="border: 1px solid #a9a9a9;background:#3F007D;color:transparent;"
+							  value="#3F007D" />
+						</p>
+						<p class="main-color">Text colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-group-text-colour" style="border: 1px solid #a9a9a9;background:#525252;color:transparent;"
+							  value="#525252" />
+						</p>
+						<p class="main-color">
+							<span>Text size:
+								<span id="parameter-group-text-size-value">20</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-group-text-size"></div>
+						</p>
+						<p class="main-color">
+							<span>Transparency:
+								<span id="parameter-group-opacity-value">60</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-group-opacity"></div>
+						</p>
+					</div>
+				</div>
+
+
+				<div id="arrow-panel-label" class="panel-label">Arrow
+					<span class="glyphicon glyphicon-menu-right"></span>
+				</div>
+				<div id="arrow-panel-content" class="panel-content">
+					<div style="padding: 5px 10px 10px 10px;">
+						<p class="main-color">Colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-link-border-colour" style="border: 1px solid #a9a9a9;background:#238B45;color:transparent;"
+							  value="#238B45" />
+						</p>
+						<p class="main-color">
+							<span>Width:
+								<span id="parameter-link-border-width-value">1.5</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-link-border-width"></div>
+						</p>
+						<p class="main-color">Text colour:</p>
+						<p class="icolorC">
+							<input type="text" id="parameter-link-text-colour" style="border: 1px solid #a9a9a9;background:#000000;color:transparent;"
+							  value="#000000" />
+						</p>
+						<p class="main-color">
+							<span>Text size:
+								<span id="parameter-link-text-size-value">14</span>
+							</span>
+							<div style="margin-top:3px;" id="parameter-link-text-size"></div>
+						</p>
+						<p style="margin-top:5px;">
+							<input id="parameter-is-link-animation" style="width:10%;border:0;background:#fff;color:#080808;padding:0.5px;" type="checkbox">Flow arrow
+						</p>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<span id="animation-arrow-right" class="animation-arrow glyphicon glyphicon-menu-right" style="top: 50%;right: 0px;"></span>
+		<span id="animation-arrow-up" class="animation-arrow glyphicon glyphicon-menu-up" style="top: 50px;left: 50%;"></span>
+		<span id="animation-arrow-left" class="animation-arrow glyphicon glyphicon-menu-left" style="top: 50%;left: 0px;"></span>
+		<span id="animation-arrow-down" class="animation-arrow glyphicon glyphicon-menu-down" style="top: 98%;left: 50%;"></span>
+
+
+		<div class="container" style="margin:0;width:100%;height:100%;overflow:hidden;">
+			<div class="row" id="livemap-container" style="position:relative;">
+				<div class="col-md-12" style="width:100%; height:600px;padding-right: 10px;padding-left: 10px;" id="d3-graph-container">
+
+					<div id="d3-graph-wrapper" style="width:100%;height:100%;">
+						<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+					</div>
+
+				</div>
+				<div id="canvas-container" style="position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:-99999;display:none;background:#ffffff;">
+
+					<div id="close-canvas-container">Return to app</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div id="tooltipter-container" style="display:none">
+
+	</div>
+
+	<div class="spinner-wrapper">
+		<div class="spinner">
+			<div class="double-bounce1"></div>
+			<div class="double-bounce2"></div>
+		</div>
+	</div>
+	<script src="/js/d3.v3.min.js"></script>
+	<script src="/js/keybinding.js"></script>
+	<script src="/js/d3.slider.js"></script>
+	<!--<script src="/js/xepOnline.jqPlugin.js"></script>-->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery.icolor.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/tooltipster.bundle.min.js"></script>
+	<script src="/js/jquery.contextMenu.min.js"></script>
+	<script src="/js/jquery.contextMenu.additional.js"></script>
+	<script src="/js/rgbcolor.js"></script>
+	<script src="/js/canvg.js"></script>
+	<script src="/js/canvas-toBlob.js"></script>
+	<script src="/js/canvas-toBlob.additional.js"></script>
+	<script src="/js/FileSaver.min.js"></script>
+	<script src="/js/detect-zoom.min.js"></script>
+	<!--svg to canvas - for node.js save-->
+	<script src="/js/load-img.js"></script>
+	<script src="/js/svg-to-image.js"></script>
+	<script src="/js/get-canvas-context.js"></script>
+	<!--gallery-->
+	<script src="/js/vex.combined.min.js"></script>
+	<script>
+		vex.defaultOptions.className = 'vex-theme-default'
+	</script>
+	<link rel="stylesheet" href="/css/vex.css" />
+	<link rel="stylesheet" href="/css/vex-theme-default.css" />
+	<!--for IE-->
+	<script src="/js/jspdf.min.js"></script>
+	<!--https://rawgit.com/exupero/saveSvgAsPng/gh-pages/saveSvgAsPng.js-->
+	<script src="/js/saveSvgAsPng.js"></script>
+	<!--main-->
+	<script src="/js/d3.graph.js"></script>
+</body>
+
+</html>
