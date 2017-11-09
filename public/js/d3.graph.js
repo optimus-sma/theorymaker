@@ -972,23 +972,6 @@
 
       setTimeout(function () {
 
-        $.ajax({
-          type: 'POST',
-          url: "./saveimage",
-          datatype: "json",
-          data: {
-            permalink: permalink,
-            "graph": context.canvas.toDataURL('image/png')
-          },
-          success: function (result) { //done
-          },
-          error: function () { //fail
-            //console.log("Error!"); 
-          },
-          complete: function () { //always
-            closeCanvasContainer();
-          }
-        });
 
         var json = {
           "graph": graph.initState,
@@ -1004,19 +987,30 @@
             "graph": str
           },
           success: function (result) {
-            window.location.search = setParameterByName("", "permalink", permalink);
-            $("#parameter-permalink-name").val(permalink);
-            localStorage.setItem('theorymakerPermalink', permalink);
-            $("#saved-link-span").html(window.location.href);
+            $.ajax({
+              type: 'POST',
+              url: "./saveimage",
+              datatype: "json",
+              data: {
+                permalink: permalink,
+                "graph": context.canvas.toDataURL('image/png')
+              },
+              success: function (result) { //done
+                window.location.search = setParameterByName("", "permalink", permalink);
+                $("#parameter-permalink-name").val(permalink);
+                localStorage.setItem('theorymakerPermalink', permalink);
+                $("#saved-link-span").html(window.location.href);
+              },
+              complete: function () { //always
+                closeCanvasContainer();
+              }
+            });
           },
           error: function () {
-            //console.log("Error!"); 
-          },
-          complete: function () {
             closeCanvasContainer();
           }
         });
-      }, 250);
+      }, 500);
     }
     // new
     parameterCreateWebImage(callback);
