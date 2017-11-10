@@ -123,6 +123,46 @@
     return false;
   }
 
+  function selectTextareaLine(tarea, lineNum) {
+    // lineNum--; // array starts at 0
+    // var lines = tarea.value.split("\n");
+
+    // calculate start/end
+    var startPos = 0, endPos = tarea.value.length;
+    // for(var x = 0; x < lines.length; x++) {
+    //     if(x == lineNum) {
+    //         break;
+    //     }
+    //     startPos += (lines[x].length+1);
+
+    // }
+
+    // var endPos = lines[lineNum].length+startPos;
+
+    // do selection
+    // Chrome / Firefox
+
+    if(typeof(tarea.selectionStart) != "undefined") {
+        tarea.focus();
+        tarea.selectionStart = startPos;
+        tarea.selectionEnd = endPos;
+        return true;
+    }
+
+    // IE
+     if (document.selection && document.selection.createRange) {
+        tarea.focus();
+        tarea.select();
+        var range = document.selection.createRange();
+        range.collapse(true);
+        range.moveEnd("character", endPos);
+        range.moveStart("character", startPos);
+        range.select();
+        return true;
+    }
+
+    return false;
+}
 
   window.graph = {};
   graph.h = (window.innerHeight ||
@@ -1767,6 +1807,9 @@
           opt.items.edittext.value = d.name.replaceAll(' /// ', '\n');
           setTimeout(function () {
             $(".group-textarea-focus").find("textarea").focus();
+            if (d.name.replaceAll(' /// ', '\n')==="Label"){
+              selectTextareaLine($(".group-textarea-focus").find("textarea")[0]);
+            }
           }, 200);
           $('#groupColorPicker').css("background", d.fill);
           $('#groupBorderColorPicker').css("background", d.stroke);
@@ -2243,47 +2286,47 @@
               // console.log(name);
               var txt = name.replaceAll('\n', ' /// ');
               // var txt = (frm.select(".makeEditable").node().value).replaceAll('\n', ' /// ');
-              if (e.keyCode !== 13){
-                var paragraphs = txt.split("///  ///");
-                if (paragraphs.length === 1) {
-                  paragraphs = txt.split("///   ///");
-                }
-                if (paragraphs.length > 1) {
-                  $(document).off("click");
-                  var isLastEnter = paragraphs[paragraphs.length - 1].lastIndexOf(" /// ");
-                  if (isLastEnter > 0) {
-                    paragraphs[paragraphs.length - 1] = paragraphs[paragraphs.length - 1].substring(0, isLastEnter);
-                  }
-                  paragraphs.map(function (c, i) {
-                    c = c.trim();
-                    if (i === 0) {
-                      d.name = c;
-                    } else {
-                      if (!c || c === " ") {
-                        return;
-                      }
-                      var id = (+d.id) + i + getRandomArbitrary(100, 1000);
-                      dblclickAddNode(this, [d.x, d.y + i * graph.parameters.horizontalGap], id);
-                      graph.initState.nodes[id].name = c;
-                      graph.initState.nodes[id].fontSize = d.fontSize; // the same as in editted node
-                      Object.keys(graph.initState.nodes).map(function (objectKey) { // add new node for parrent/group of editted node
-                        var node = graph.initState.nodes[objectKey];
-                        if (node.level > 0 && node.selectedNodes.length > 0) {
-                          node.selectedNodes.map(function (c) {
-                            if (c === d.id) {
-                              graph.initState.nodes[node.id].selectedNodes.push(id);
-                            }
-                          })
-                        }
-                      });
-                    }
-                  });
-                  // d3.selectAll(".foreign-object").remove();
-                  $(".context-menu-list").hide();
-                  restartN(2);
-                  return;
-                }
-              }
+              // if (e.keyCode !== 13){
+              //   var paragraphs = txt.split("///  ///");
+              //   if (paragraphs.length === 1) {
+              //     paragraphs = txt.split("///   ///");
+              //   }
+              //   if (paragraphs.length > 1) {
+              //     $(document).off("click");
+              //     var isLastEnter = paragraphs[paragraphs.length - 1].lastIndexOf(" /// ");
+              //     if (isLastEnter > 0) {
+              //       paragraphs[paragraphs.length - 1] = paragraphs[paragraphs.length - 1].substring(0, isLastEnter);
+              //     }
+              //     paragraphs.map(function (c, i) {
+              //       c = c.trim();
+              //       if (i === 0) {
+              //         d.name = c;
+              //       } else {
+              //         if (!c || c === " ") {
+              //           return;
+              //         }
+              //         var id = (+d.id) + i + getRandomArbitrary(100, 1000);
+              //         dblclickAddNode(this, [d.x, d.y + i * graph.parameters.horizontalGap], id);
+              //         graph.initState.nodes[id].name = c;
+              //         graph.initState.nodes[id].fontSize = d.fontSize; // the same as in editted node
+              //         Object.keys(graph.initState.nodes).map(function (objectKey) { // add new node for parrent/group of editted node
+              //           var node = graph.initState.nodes[objectKey];
+              //           if (node.level > 0 && node.selectedNodes.length > 0) {
+              //             node.selectedNodes.map(function (c) {
+              //               if (c === d.id) {
+              //                 graph.initState.nodes[node.id].selectedNodes.push(id);
+              //               }
+              //             })
+              //           }
+              //         });
+              //       }
+              //     });
+              //     // d3.selectAll(".foreign-object").remove();
+              //     $(".context-menu-list").hide();
+              //     restartN(2);
+              //     return;
+              //   }
+              // }
               
               txt = txt.trim();
 
@@ -2639,6 +2682,9 @@
           opt.items.edittext.value = d.name.replaceAll(' /// ', '\n');
           setTimeout(function () {
             $(".node-textarea-focus").find("textarea").focus();
+            if (d.name.replaceAll(' /// ', '\n')==="Label"){
+              selectTextareaLine($(".node-textarea-focus").find("textarea")[0]);
+            }
           }, 200);
           $('#nodeColorPicker').css("background", d.fill);
           $('#nodeBorderColorPicker').css("background", d.stroke);
