@@ -1,0 +1,174 @@
+{
+  "get-data-title": {
+    "selector": ".",
+    "text": "Click to load one of these example diagrams"
+  },
+  "parameter-quality-value": {
+    "selector": "#",
+    "text": "Slide to the right to get a better quality diagram - but it will take longer to download"
+  },
+  "bt-undo": {
+    "selector": "#",
+    "text": "Click several times if required"
+  },
+  "bt-settings": {
+    "selector": "#",
+    "text": "Close the global panel"
+  },
+  "bt-help": {
+    "selector": "#",
+    "text": "Help panel"
+  },
+  "bt-list": {
+    "selector": "#",
+    "text": "Examples gallery"
+  },
+  "parameter-is-graph-permalink": {
+    "selector": "#",
+    "text": "Display permalink of diagram at bottom-left"
+  },
+  "parameter-themes": {
+    "selector": "#",
+    "text": "Change the appearance of whole diagram by applying a theme"
+  },
+  "parameter-change-existing-items": {
+    "selector": "#",
+    "text": "Change the appearance even of existing items when applying a theme"
+  },
+  "parameter-background-colour": {
+    "selector": "#",
+    "text": "Click to change the background colour"
+  },
+  "parameter-title-name": {
+    "selector": "#",
+    "text": "Type a title to appear at the top of your diagram"
+  },
+  "parameter-graph-info": {
+    "selector": "#",
+    "text": "Store some information about your diagram such as date, author, revision number"
+  },
+  "parameter-quality": {
+    "selector": "#",
+    "text": "Slide to the right to get a higher-quality (but slower and larger) graph - png only"
+  },
+  "parameter-for-save": {
+    "selector": "#",
+    "text": "Select image type for download - png (picture) pdf or emf (for Microsoft Office)"
+  },
+  "parameter-save": {
+    "selector": "#",
+    "text": "Click to download image"
+  },
+  "parameter-permalink-name": {
+    "selector": "#",
+    "text": "Type a different name to save your diagram (online on desktop)"
+  },
+  "parameter-upload-dataset": {
+    "selector": "#",
+    "text": "Load a diagram from your desktop (which you saved before)"
+  },
+  "parameter-is-link-animation": {
+    "selector": "#",
+    "text": "Make the arrows appear to flow"
+  },
+  "unicode-1": {
+    "selector": ".",
+    "text": "Intervention Variable"
+  },
+  "unicode-2": {
+    "selector": ".",
+    "text": "Valued - Red"
+  },
+  "unicode-3": {
+    "selector": ".",
+    "text": "Valued - Green"
+  },
+  "unicode-4": {
+    "selector": ".",
+    "text": "Yes"
+  },
+  "unicode-5": {
+    "selector": ".",
+    "text": "No"
+  },
+  "unicode-6": {
+    "selector": ".",
+    "text": "Valued - Smile"
+  },
+  "unicode-7": {
+    "selector": ".",
+    "text": "Cost - Frown"
+  },
+  "unicode-8": {
+    "selector": ".",
+    "text": "Starred"
+  },
+  "unicode-9": {
+    "selector": ".",
+    "text": "Binary - no/yes"
+  },
+  "unicode-10": {
+    "selector": ".",
+    "text": "lo-hi (proportional) Variable"
+  },
+  "unicode-11": {
+    "selector": ".",
+    "text": "Continuous Variable"
+  },
+  "unicode-12": {
+    "selector": ".",
+    "text": "Nominal Variable"
+  },
+  "unicode-13": {
+    "selector": ".",
+    "text": "Ordinal Variable"
+  },
+  "unicode-14": {
+    "selector": ".",
+    "text": "Rich Variable"
+  },
+  "unicode-15": {
+    "selector": ".",
+    "text": "Inter-subjective Variable"
+  },
+  "unicode-16": {
+    "selector": ".",
+    "text": "Only at beginning"
+  },
+  "unicode-17": {
+    "selector": ".",
+    "text": "Only at end"
+  },
+  "unicode-18": {
+    "selector": ".",
+    "text": "Symbolic Variable"
+  },
+  "unicode-19": {
+    "selector": ".",
+    "text": "Opposite-direction Rule"
+  },
+  "unicode-20": {
+    "selector": ".",
+    "text": "Same-direction Rule"
+  },
+  "unicode-21": {
+    "selector": ".",
+    "text": "Aggregation Rule"
+  },
+  "unicode-22": {
+    "selector": ".",
+    "text": "Memory Variable"
+  },
+  "unicode-23": {
+    "selector": ".",
+    "text": "Peer-to-peer Rule"
+  },
+  "unicode-24": {
+    "selector": ".",
+    "text": "Observation Rule (gives information on causal links)"
+  },
+  "unicode-25": {
+    "selector": ".",
+    "text": "Hand Rule"
+  }
+}

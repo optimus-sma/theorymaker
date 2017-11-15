@@ -87,6 +87,20 @@ app.post('/getdata', function (req, res) {
   });
 });
 
+app.post('/getoptions', function (req, res) {
+  var permalink = req.body.permalink;
+  permalink = permalink.replace(/[^a-zA-Z0-9_]/g, function (str) {
+    return '';
+  });
+  fs.readFile(__dirname + '/' + permalink + '.json', 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
+
 app.post('/setdata', function (req, res) {
   var permalink = req.body.permalink;
   var json = req.body.graph;

@@ -5905,7 +5905,7 @@
   function getThemes(callback) { //:String
     $.ajax({
       type: 'POST',
-      url: "/getdata",
+      url: "/getoptions",
       datatype: "json",
       data: {
         "permalink": "__predefined__themes__"
@@ -5964,7 +5964,7 @@
   function getTooltipster() { //:String
     $.ajax({
       type: 'POST',
-      url: "/getdata",
+      url: "/getoptions",
       datatype: "json",
       data: {
         "permalink": "__predefined__tooltipster__"
