@@ -128,11 +128,15 @@ app.post('/upload', function (req, res) {
     permalink = permalink.replace(/[^a-zA-Z0-9_]/g, function (str) {
       return '';
     });
-    var fstream = fs.createWriteStream(__dirname + '/graphs/' + permalink + '.json');
-    file.pipe(fstream);
-    fstream.on('close', function () {
-      res.status(200).send(permalink);
-    });
+    if (permalink !== "default"){
+      var fstream = fs.createWriteStream(__dirname + '/graphs/' + permalink + '.json');
+      file.pipe(fstream);
+      fstream.on('close', function () {
+        res.status(200).send(permalink);
+      });
+    } else {
+      res.status(203).send(undefined);
+    }
   });
 });
 

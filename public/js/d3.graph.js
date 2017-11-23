@@ -1103,11 +1103,16 @@
         processData: false,
         contentType: false,
         success: function (permalink) {
-          window.location.search = setParameterByName("", "permalink", permalink);
-          getData(permalink);
+          // console.log(permalink);
+          if(permalink){
+            window.location.search = setParameterByName("", "permalink", permalink);
+            getData(permalink);
+          } else {
+            alert("Please select another filename!");
+          }
         },
         error: function () {
-          // console.log("Error!"); 
+          alert("Please select another filename!");
         }
       });
 
